@@ -1,4 +1,4 @@
-package hellospring.project.common.utils;
+package common.utils;
 
 import cn.hutool.core.util.IdUtil;
 import org.apache.http.HttpResponse;
@@ -80,6 +80,9 @@ public class HttpUtil {
         httpPost.setHeader("参数值", generateStrId());
         httpPost.setHeader("参数值", "参数值");
         httpPost.setHeader("参数值", "参数值");
+        // 设置超时时间
+        RequestConfig requestConfig = RequestConfig.custom().setConnectTimeout(5000).setConnectionRequestTimeout(3000).setSocketTimeout(5000).build();
+        httpPost.setConfig(requestConfig);
         // 设置请求参数
         httpPost.setEntity(new StringEntity(param, ContentType.create("application/json", "utf-8")));
         // 获取返回结果
