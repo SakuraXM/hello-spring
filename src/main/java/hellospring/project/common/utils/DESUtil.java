@@ -1,8 +1,8 @@
-package common.utils;
+package hellospring.project.common.utils;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
-import common.constants.DesConstant;
+import hellospring.project.common.constants.DesConstant;
 import org.apache.commons.codec.binary.Base64;
 import org.apache.http.HttpResponse;
 import org.apache.http.HttpStatus;

@@ -1,4 +1,4 @@
-package common.utils;
+package hellospring.project.common.utils;
 
 import cn.hutool.core.util.IdUtil;
 import org.apache.http.HttpResponse;
