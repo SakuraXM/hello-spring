@@ -1,35 +1,31 @@
-package com.sakura.m;
+package com.sakura.predatasource.sakura.service.impl;
 
+import com.sakura.predatasource.sakura.service.IPreDataSourceService;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.boot.CommandLineRunner;
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.SQLException;
 
+/**
+ * @author DM
+ * @version 1.0
+ * @description 服务接口实现
+ * @date 2022/06/16
+ */
 @Slf4j
-@SpringBootApplication
-public class MApplication implements CommandLineRunner {
+@Service
+public class PreDataSourceServiceImpl implements IPreDataSourceService {
     @Resource
-    DataSource dataSource;
+    private DataSource dataSource;
     @Resource
-    JdbcTemplate jdbcTemplate;
-
-    public static void main(String[] args) {
-        SpringApplication.run(MApplication.class, args);
-    }
+    private JdbcTemplate jdbcTemplate;
 
     @Override
-    public void run(String... args) throws Exception {
-        showConnection();
-        showData();
-    }
-
-    private void showConnection() throws SQLException {
+    public void showConnection() throws SQLException {
         log.info("=====================dataSource信息======================");
         log.info(dataSource.toString());
         log.info("=====================dataSource信息======================");
@@ -40,10 +36,10 @@ public class MApplication implements CommandLineRunner {
         connection.close();
     }
 
-    private void showData() {
+    @Override
+    public void showData() {
         log.info("=====================数据查询开始======================");
         jdbcTemplate.queryForList("SELECT * FROM FOO").forEach(row -> System.out.println(row.toString()));
         log.info("=====================数据查询结束======================");
     }
-
 }
