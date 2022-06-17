@@ -26,7 +26,7 @@ public class FooDao {
     }
 
     /**
-     * @description 插入数据FOO
+     * @description 获取数据条数
      */
     public long getCount(String parameter) {
         return (long) jdbcTemplate.queryForList("SELECT COUNT(*) AS CNT FROM FOO WHERE BAR=?", parameter).get(0).get("CNT");
