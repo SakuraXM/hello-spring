@@ -16,8 +16,8 @@ invokeInsertThenRollback()调用并抛出异常时，insertThenRollback()不会�
 insertThenRollback()在NESTED状态下，
 invokeInsertThenRollback()调用并抛出异常时，insertThenRollback()回滚**
 
-[//]: # (    @Transactional&#40;rollbackFor = {RollbackException.class}, propagation = Propagation.REQUIRES_NEW&#41;)
     @Override
+    @Transactional(rollbackFor = {RollbackException.class}, propagation = Propagation.REQUIRES_NEW)
     @Transactional(rollbackFor = {RollbackException.class}, propagation = Propagation.NESTED)
     public void insertThenRollback() throws RollbackException {
         fooDao.insertData("BBB");
