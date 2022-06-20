@@ -31,11 +31,14 @@ import java.util.List;
 @AllArgsConstructor
 @Table(name = "T_ORDER")
 public class CoffeeOrder extends BaseEntity implements Serializable {
+
     private String customer;
+
     @ManyToMany
     @OrderBy(value = "id")
     @JoinTable(name = "T_ORDER_COFfEE")
     private List<Coffee> items;
+
     @Enumerated
     @Column(nullable = false)
     private OrderStateEnum state;

@@ -1,4 +1,4 @@
-package common.utils;
+package hellospring.common.utils;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;

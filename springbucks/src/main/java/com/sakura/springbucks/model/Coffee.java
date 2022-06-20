@@ -1,38 +1,32 @@
-package com.sakura.jpa.model;
+package com.sakura.springbucks.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.annotations.CreationTimestamp;
+import lombok.ToString;
 import org.hibernate.annotations.Type;
 import org.joda.money.Money;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 import javax.persistence.Table;
 import java.io.Serializable;
-import java.util.Date;
 
 /**
  * @author DM
  * @version 1.0
  * @description 咖啡实体类
- * @date 2022/06/19
+ * @date 2022/06/20
  */
 @Data
 @Entity
 @Builder
+@ToString(callSuper = true)
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "T_COFFEE")
-public class Coffee implements Serializable {
-
-    @Id
-    @GeneratedValue
-    private Long id;
+public class Coffee extends BaseEntity implements Serializable {
 
     private String name;
 
@@ -40,11 +34,4 @@ public class Coffee implements Serializable {
     @Type(type = "org.jadira.usertype.moneyandcurrency.joda.PersistentMoneyAmount",
             parameters = {@org.hibernate.annotations.Parameter(name = "currencyCode", value = "CNY")})
     private Money price;
-
-    @Column(updatable = false)
-    @CreationTimestamp
-    private Date createTime;
-
-    @CreationTimestamp
-    private Date updateTime;
 }

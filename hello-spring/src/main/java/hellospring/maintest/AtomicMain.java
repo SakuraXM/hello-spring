@@ -1,4 +1,4 @@
-package maintest;
+package hellospring.maintest;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;

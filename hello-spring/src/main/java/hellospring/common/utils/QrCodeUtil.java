@@ -1,4 +1,4 @@
-package common.utils;
+package hellospring.common.utils;
 
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.EncodeHintType;

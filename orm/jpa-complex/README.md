@@ -78,7 +78,7 @@
 
 ***
 
-## JDBC/Hibernate/JPA/MyBatis
+## JDBC/JPA/Hibernate/MyBatis
 * **JDBC是各种操作的基础**<br><br/>
 * **JPA是个规范**<br><br/>
 * **Hibernate是JPA的一种实现**<br><br/>

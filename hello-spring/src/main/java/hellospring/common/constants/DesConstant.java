@@ -1,4 +1,4 @@
-package common.constants;
+package hellospring.common.constants;
 
 import javax.crypto.BadPaddingException;
 import javax.crypto.Cipher;
