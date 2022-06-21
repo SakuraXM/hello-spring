@@ -28,11 +28,13 @@ public class CoffeeOrderServiceImpl implements ICoffeeOrderService {
     public CoffeeOrder createOrder(String customer, Coffee... coffees) {
         CoffeeOrder order = CoffeeOrder.builder()
                 .customer(customer)
-                .items(new ArrayList<>(Arrays.asList(coffees)))
+                .items(Arrays.asList(coffees))
                 .state(OrderStateEnum.INIT)
                 .build();
         CoffeeOrder coffeeOrder = coffeeOrderRepository.save(order);
+        log.info("===============创建咖啡订单==================");
         log.info("New Order: {}", coffeeOrder);
+        log.info("===============创建咖啡订单==================");
         return coffeeOrder;
     }
 
@@ -44,7 +46,9 @@ public class CoffeeOrderServiceImpl implements ICoffeeOrderService {
         } else {
             order.setState(stateEnum);
             coffeeOrderRepository.save(order);
+            log.info("===============咖啡订单状态更新==================");
             log.info("Updated Order: {}", order);
+            log.info("===============咖啡订单状态更新==================");
         }
         return true;
     }

@@ -1,9 +1,7 @@
 package com.sakura.jpa.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.experimental.Accessors;
 import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.Column;
@@ -25,9 +23,7 @@ import java.util.List;
  */
 @Data
 @Entity
-@Builder
-@NoArgsConstructor
-@AllArgsConstructor
+@Accessors(chain = true)
 @Table(name = "T_ORDER")
 public class CoffeeOrder implements Serializable {
 

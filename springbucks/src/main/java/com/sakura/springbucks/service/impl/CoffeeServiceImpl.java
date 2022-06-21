@@ -30,16 +30,18 @@ public class CoffeeServiceImpl implements ICoffeeService {
     public Optional<Coffee> findOneCoffee(String name) {
         ExampleMatcher matcher = ExampleMatcher.matching().withMatcher("name", exact().ignoreCase());
         Optional<Coffee> coffee = coffeeRepository.findOne(Example.of(Coffee.builder().name(name).build(), matcher));
-        log.info("=================================");
+        log.info("===============根据名称查询咖啡==================");
         log.info("Coffee Found: {}", coffee);
-        log.info("=================================");
+        log.info("===============根据名称查询咖啡==================");
         return coffee;
     }
 
     @Override
     public List<Coffee> findAll() {
         List<Coffee> list = coffeeRepository.findAll();
+        log.info("===============当前支持的所有咖啡==================");
         log.info("All Coffee: {}", list);
+        log.info("===============当前支持的所有咖啡==================");
         return list;
     }
 }
