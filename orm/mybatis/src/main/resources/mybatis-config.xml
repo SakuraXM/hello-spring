@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <!-- MyBatis 核心配置文件，就是以前的 sqlMapConfig.xml 文件 -->
+    <!--可从官网获取本文件头：http://www.mybatis.org/mybatis-3/getting-started.html-->
+    <!-- 更多配置选项都可以从官网获取：http://www.mybatis.org/mybatis-3/configuration.html#settings-->
+
+    <!-- 读取application.properties文件中的数据key-value的形式 -->
+    <!-- 注意:是applications.properties文件中的值优先级高 -->
+<!--    <properties resource="application.properties">-->
+<!--        <property name="username" value="" />-->
+<!--        <property name="password" value="" />-->
+<!--    </properties>-->
+
+    <settings>
+        <!-- 开启驼峰命名，与注解方式的使用的 ConfigurationCustomizer 完全等效-->
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
+        <!--启用全局缓存-->
+        <setting name="cacheEnabled" value="true"/>
+        <!--启用延迟加载-->
+        <setting name="lazyLoadingEnabled" value="true"/>
+        <!--设置驱动程序等待数据库响应的秒数。-->
+        <setting name="defaultStatementTimeout" value="60"/>
+        <!--为驱动程序设置一个提示，以控制返回结果的获取大小。此参数值可由查询设置覆盖-->
+        <setting name="defaultFetchSize" value="100"/>
+    </settings>
+
+    <!--类型别名：用于标记 Java 类型的一个较短名称，只与XML配置相关，只是为了减少完全限定类名的书写-->
+    <!--可以在 XxxMapper.xml 映射文件中使用此别名代替完全限定类名，比如 parameterType、resultType、type等等-->
+    <typeAliases>
+        <typeAlias type="com.sakura.mybatis.model.Coffee" alias="coffeeModel"></typeAlias>
+    </typeAliases>
+
+    <typeHandlers>
+        <typeHandler handler="com.sakura.mybatis.handler.MoneyTypeHandler" />
+        <package name="com.sakura.mybatis.handler" />
+    </typeHandlers>
+
+    <mappers>
+        <!--    resource属性：用来指定在classpath中的mapper文件。-->
+        <!--    url属性：用来通过完全文件系统路径或者web URL地址来指向mapper文件-->
+        <!--    class属性：用来指向一个mapper接口-->
+        <!--    package属性：用来指向可以找到Mapper接口的包名-->
+<!--        <mapper resource="mapper/CoffeeMapper.xml" />-->
+        <!--        <mapper url="" />-->
+<!--        <mapper class="com.sakura.mybatis.mapper.CoffeeMapper" />-->
+<!--        <package name="com.sakura.mybatis.mapper"/>-->
+    </mappers>
+
+</configuration>

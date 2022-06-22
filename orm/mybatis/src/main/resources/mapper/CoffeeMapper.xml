@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.sakura.mybatis.mapper.CoffeeMapper">
+
+    <resultMap id="coffeeMap" type="coffeeModel">
+        <id column="id" property="id"/>
+        <id column="name" property="name"/>
+        <id column="price" property="price"/>
+        <id column="create_time" property="createTime"/>
+        <id column="update_time" property="updateTime"/>
+    </resultMap>
+
+    <sql id="coffeeInfo">
+        id, name, price, create_time, update_time
+    </sql>
+
+    <insert id="save" parameterType="coffeeModel" useGeneratedKeys="true" keyColumn="id" keyProperty="id">
+        INSERT INTO
+        T_COFFEE (name, price, create_time, update_time)
+        VALUES (#{name}, #{price}, now(), now())
+    </insert>
+
+    <select id="findById" parameterType="java.lang.Long" resultMap="coffeeMap">
+        SELECT
+            <include refid="coffeeInfo"/>
+        FROM T_COFFEE
+            WHERE id = #{id}
+    </select>
+
+</mapper>
