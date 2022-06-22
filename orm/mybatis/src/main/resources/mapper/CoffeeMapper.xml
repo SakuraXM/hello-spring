@@ -17,7 +17,7 @@
 
     <insert id="save" parameterType="coffeeModel" useGeneratedKeys="true" keyColumn="id" keyProperty="id">
         INSERT INTO
-        T_COFFEE (name, price, create_time, update_time)
+            T_COFFEE (name, price, create_time, update_time)
         VALUES (#{name}, #{price}, now(), now())
     </insert>
 

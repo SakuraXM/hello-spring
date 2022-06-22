@@ -1,6 +1,7 @@
 package com.sakura.mybatis.service.impl;
 
 import com.sakura.mybatis.mapper.CoffeeMapper;
+import com.sakura.mybatis.mapper.ICoffeeMapper;
 import com.sakura.mybatis.model.Coffee;
 import com.sakura.mybatis.service.ICoffeeService;
 import lombok.extern.slf4j.Slf4j;
@@ -21,6 +22,8 @@ import javax.annotation.Resource;
 public class CoffeeServiceImpl implements ICoffeeService {
     @Resource
     private CoffeeMapper coffeeMapper;
+    @Resource
+    private ICoffeeMapper mapper;
 
     @Override
     public int save(String name, double price) {
@@ -29,6 +32,7 @@ public class CoffeeServiceImpl implements ICoffeeService {
                 .price(Money.of(CurrencyUnit.of("CNY"), price))
                 .build();
         int i = coffeeMapper.save(c);
+//        int i = mapper.save(c);
         log.info("========================生产的咖啡信息===================");
         log.info("Product Coffee info: {}", c);
         return i;
@@ -37,5 +41,6 @@ public class CoffeeServiceImpl implements ICoffeeService {
     @Override
     public Coffee findById(Long id) {
         return coffeeMapper.findById(id);
+//        return mapper.findById(id);
     }
 }

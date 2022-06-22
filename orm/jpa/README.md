@@ -89,4 +89,5 @@
 ***
 
 ## 参考链接
-[https://docs.jboss.org/hibernate/orm/6.1/quickstart/html_single/](https://docs.jboss.org/hibernate/orm/6.1/quickstart/html_single/)
+1. [https://docs.jboss.org/hibernate/orm/6.1/quickstart/html_single/](https://docs.jboss.org/hibernate/orm/6.1/quickstart/html_single/)
+2. [https://docs.spring.io/spring-data/jpa/docs/2.1.5.RELEASE/reference/html/]( https://docs.spring.io/spring-data/jpa/docs/2.1.5.RELEASE/reference/html/)
