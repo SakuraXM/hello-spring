@@ -59,22 +59,24 @@
 * **@OrderBy**
 
 ### A simple example
-    @Entity
-    public class Person {
-        @Id
-        @GeneratedValue
-        private Integer id;
-    
-        @Audited
-        private String name;
-    
-        @Audited
-        private String surname;
-    
-        @Audited
-        @ManyToOne
-        private Address address;
-    }
+```
+@Entity
+public class Person {
+    @Id
+    @GeneratedValue
+    private Integer id;
+
+    @Audited
+    private String name;
+
+    @Audited
+    private String surname;
+
+    @Audited
+    @ManyToOne
+    private Address address;
+}
+```
 
 ***
 
@@ -85,8 +87,72 @@
 * **Spring Data JPA 用的是Hibernate**<br><br/>
 * **MyBatis是另一种ORM框架**
 
+***
+
+## Repository Bean创建
+### JpaRepositoriesRegistrar
+* **激活了@EnableJpaRepositories**<br><br/>
+* **返回了JpaRepositoryConfigExtension**<br><br/>
+![img.png](images/img_0.png)
+
+![img_2.png](images/img_1.png)
+
+
+
+### RepositoryBeanDefinitionRegistrarSupport.registerBeanDefinitions
+* **注册Repository Bean（类型是JpaRepositoryFactoryBean）**<br><br/>
+![img_2.png](images/img_2.png)
+
+![img_3.png](images/img_3.png)
+
+![img_4.png](images/img_4.png)
+
+![img_5.png](images/img_5.png)
+
+![img_6.png](images/img_6.png)
+
+### RepositoryConfigurationExtensionSupport.getRepositoryConfigurations
+* **取得Repository配置**<br><br/>
+
+### JpaRepositoryFactoryBean.afterPropertiesSet.getRepository
+* **创建Repository**<br><br/>
+![img_7.png](images/img_7.png)
+
+![img_8.png](images/img_8.png)
+
+![img_9.png](images/img_9.png)
+
+### SimpleJpaRepository
+* **基础类方法**<br><br/>
 
 ***
+
+## 接口中的方法解释过程
+### RepositoryFactorySupport.getRepository 添加Advice
+* DefaultMethodInvokingMethodInterceptor
+* QueryExecutorMethodInterceptor
+![img_10.png](images/img_10.png)
+
+![img_11.png](images/img_11.png)
+
+![img_12.png](images/img_12.png)
+
+### AbstractJpaQuery.execute 执行具体的查询
+
+
+### 在Part中解析语法
+* **PartTree**<br><br/>
+![img_13.png](images/img_13.png)
+
+* **Ignorance**<br><br/>
+![img_14.png](images/img_14.png)
+
+* **OrderBy**<br><br/>
+![img_15.png](images/img_15.png)
+
+
+***
+
 
 ## 参考链接
 [https://docs.jboss.org/hibernate/orm/6.1/quickstart/html_single/](https://docs.jboss.org/hibernate/orm/6.1/quickstart/html_single/)

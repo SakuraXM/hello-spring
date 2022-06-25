@@ -43,6 +43,7 @@ public class MoneyTypeHandler extends BaseTypeHandler<Money> {
      * @description 将Long类型数据转换为人民币Money类型
      */
     private Money parseMoney(Long value) {
-        return Money.of(CurrencyUnit.of("CNY"), value / 100.0);
+//        return Money.of(CurrencyUnit.of("CNY"), value / 100.0);
+        return Money.ofMinor(CurrencyUnit.of("CNY"), value);
     }
 }
