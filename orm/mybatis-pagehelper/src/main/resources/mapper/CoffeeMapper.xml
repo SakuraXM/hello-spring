@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.sakura.mybatispagehelper.mapper.CoffeeMapper">
+
+    <resultMap id="coffeeMap" type="Coffee">
+        <id column="id" property="id"/>
+        <id column="name" property="name"/>
+        <id column="price" property="price"/>
+        <id column="create_time" property="createTime"/>
+        <id column="update_time" property="updateTime"/>
+    </resultMap>
+
+    <sql id="coffeeInfo">
+        id, name, price, create_time, update_time
+    </sql>
+
+    <select id="findAllWithRowBounds" resultMap="coffeeMap">
+        SELECT
+            <include refid="coffeeInfo"/>
+        FROM T_COFFEE
+            ORDER BY id
+    </select>
+
+    <select id="findAllWithParam" parameterType="java.lang.Integer" resultMap="coffeeMap">
+        SELECT
+        <include refid="coffeeInfo"/>
+        FROM T_COFFEE
+            ORDER BY id
+    </select>
+
+</mapper>
