@@ -159,6 +159,18 @@ db.createUser(
   ```
 
 
+***
+
+
+### Spring Data MongoDB Repository
+#### @EnableMongoRepositories
+#### 对应接口
+* **MongoRepository<T, ID>**<br></br>
+
+* **PagingAndSortingRepository<T, ID>**<br></br>
+
+* **CrudRepository<T, ID>**<br></br>
+
 
 ***
 
