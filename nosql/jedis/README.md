@@ -7,6 +7,7 @@
 
   * **支持的客户端Jedis / Lettuce / Redisson**<br></br>
     * **https://redis.io/docs/clients/** <br></br>
+    * **Spring Boot 2.x.x中 默认使用lettuce作为默认redis客户端**<br></br>
 
   * **RedisTemplate**<br></br>
 
