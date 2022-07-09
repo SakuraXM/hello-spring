@@ -7,6 +7,33 @@
   * org.springframework.cache.CacheManager<br></br>
 
 
+***
+
+
+## 缓存应用
+### 界面内部
+* **长久不变或者一天里面不变的信息**
+* **设置自动过期时间，过期后自动从数据库读取**
+
+### Redis 中
+* **在集群中设置缓存**
+* **集群内部访问具有一致性要求**
+
+### 不适用缓存
+* **数据的读写别差距非常小**
+
+
+***
+
+
+## 基于注解的缓存
+### @EnableCaching
+* **@Cacheable**<br></br>
+* **@CacheEvict**<br></br>
+* **@CachePut**<br></br>
+* **@Caching**<br></br>
+* **@CacheConfig**<br></br>
+
 
 
 
