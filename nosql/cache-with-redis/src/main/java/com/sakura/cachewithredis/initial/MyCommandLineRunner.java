@@ -26,8 +26,9 @@ public class MyCommandLineRunner implements CommandLineRunner {
             log.info("============================Reading from cache============================");
             coffeeService.findAllCoffee();
         }
-        // 5秒后自动刷新缓存
+        // 延迟5秒执行
         Thread.sleep(5000);
+//        coffeeService.reloadCoffee();
         log.info("===============================Reading after refresh=================================");
         coffeeService.findAllCoffee().forEach(item -> log.info("All coffee: {}", item.getName()));
     }

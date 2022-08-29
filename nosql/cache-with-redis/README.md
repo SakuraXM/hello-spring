@@ -20,7 +20,7 @@
 * **集群内部访问具有一致性要求**
 
 ### 不适用缓存
-* **数据的读写别差距非常小**
+* **数据的读写比差距非常小**
 
 
 ***
@@ -90,3 +90,4 @@ protected void evaluateProxyInterfaces(Class<?> beanClass, ProxyFactory proxyFac
 
 ## 参考链接
 1. [https://blog.csdn.net/weixin_43767015/article/details/114524674](https://blog.csdn.net/weixin_43767015/article/details/114524674)
+2. [https://blog.csdn.net/chengbinbbs/article/details/88392975](https://blog.csdn.net/chengbinbbs/article/details/88392975)
