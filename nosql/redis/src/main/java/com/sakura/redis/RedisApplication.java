@@ -22,12 +22,12 @@ public class RedisApplication {
      * @param redisConnectionFactory
      * @return
      */
-//    @Bean
-//    public RedisTemplate<String, Coffee> redisTemplate(RedisConnectionFactory redisConnectionFactory) {
-//        RedisTemplate<String, Coffee> template = new RedisTemplate<>();
-//        template.setConnectionFactory(redisConnectionFactory);
-//        return template;
-//    }
+    @Bean
+    public RedisTemplate<String, Coffee> redisTemplate(RedisConnectionFactory redisConnectionFactory) {
+        RedisTemplate<String, Coffee> template = new RedisTemplate<>();
+        template.setConnectionFactory(redisConnectionFactory);
+        return template;
+    }
 
     /**
      * 优先从master库读取数据
