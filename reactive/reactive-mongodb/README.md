@@ -6,6 +6,6 @@
 
 ### Spring Data MongoDB 中主要的支持
 
-* **ReactiveMongoClientFactoryBean**c
+* **ReactiveMongoClientFactoryBean**  <br><br/>
 * **ReactiveMongoDatabaseFactory** <br><br/>
 * **ReactiveMongoTemplate**
